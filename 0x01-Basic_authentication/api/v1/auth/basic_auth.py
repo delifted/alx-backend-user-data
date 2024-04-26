@@ -28,14 +28,14 @@ class BasicAuth(Auth):
         return None
 
     def decode_base64_authorization_header(
-            self, authorization_header: str) -> str:
+            self, base64_authorization_header: str) -> str:
         '''
         Extracts the Base64 part of the Authorization header
         for a basic authentication
         '''
-        if type(authorization_header) == str:
+        if type(base64_authorization_header) == str:
             try:
-                res = base64.b64decode(extract_base64_authorization_header,
+                res = base64.b64decode(base64_authorization_header,
                                        validate=True)
                 return res.decode('utf-8')
             except (binascii.Error, UnicodeDecodeError):
