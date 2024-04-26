@@ -17,7 +17,7 @@ auth = None
 auth_type = getenv('AUTH_TYPE', 'auth')
 if auth_type == 'auth':
     auth = Auth()
-    
+
 
 @app.errorhandler(404)
 def not_found(error) -> str:
